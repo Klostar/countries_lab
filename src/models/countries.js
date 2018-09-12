@@ -16,11 +16,15 @@ CountriesInformation.prototype.getData = function () {
 
 CountriesInformation.prototype.bindEvents = function () {
   PubSub.subscribe('SelectView:country-selected', (event) => {
-    const countryIndex = event.detail;
-    const countryObject = this.dataArray[countryIndex]
-    console.log(countryObject);
-
+  const countryIndex = event.detail;
+    this.publishInfo(countryIndex);
     });
+
+};
+
+CountriesInformation.prototype.publishInfo = function (index) {
+  const countryObject = this.dataArray[index]
+  PubSub.publish('Countries:selected-ready', countryObject)
 
 };
 
