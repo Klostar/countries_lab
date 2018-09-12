@@ -8,7 +8,8 @@ const CountriesInformation = function () {
 CountriesInformation.prototype.getData = function () {
   const request = new Request('https://restcountries.eu/rest/v2/all');
   request.get((data) => {
-    console.log(data);
+    this.dataArray = data;
+    PubSub.publish('Countries:data-ready', this.dataArray)
   })
 };
 
