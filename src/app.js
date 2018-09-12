@@ -1,3 +1,8 @@
+const CountriesInformation = require('./models/countries.js');
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('JavaScript Loaded');
+  const info = new CountriesInformation();
+  info.getData();
 });
