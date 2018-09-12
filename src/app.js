@@ -6,9 +6,11 @@ const SelectView = require('./views/select_view.js');
 document.addEventListener('DOMContentLoaded', () => {
   const info = new CountriesInformation();
   info.getData();
+  info.bindEvents();
 
   const dropdown = document.querySelector('#countries');
   const selectView = new SelectView(dropdown);
   selectView.bindEvents();
+
 
 });
